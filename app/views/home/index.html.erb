@@ -1,0 +1,8 @@
+<h1>Search by email address:</h1>
+<%=form_tag("/search", method: "get") do %>
+	<%= label_tag(:query, "Search") %>
+	<%= text_field_tag (:query) %>
+	<%= submit_tag("Submit")%>
+<% end %>
+
+

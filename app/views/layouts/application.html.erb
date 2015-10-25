@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MicroBlog</title>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+<h1>Main Menu:</h1>
+<% if current_user %>
+  		<%= link_to "Profile", user_path(session[:user_id]) %> - <%= link_to "Users", users_path %> - <%= link_to "Search", home_path %> - <%= link_to "Log Out", "/logout" %><br>
+      <%= link_to "Global Post Feed", posts_path %> - <%= link_to "Personal Blog", "/user_posts"%>
+
+  <%else%>
+
+  		<p>You are not logged in to see the content. Please <%= link_to "SIGN UP", new_user_path %> or <a href="/login_form">LOG IN</a>.</p>
+  <% end %>
+  <hr>
+  <% if flash[:info] %>     
+  		   <div>   
+  			 <%=flash[:info] %>     
+  		   </div>   
+  <% end %>   
+  
+  <% if flash[:alert] %>     
+  		<div>  
+  			<%=flash[:alert] %>     
+  		</div>   
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>

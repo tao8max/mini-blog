@@ -1,0 +1,6 @@
+<%=h1_tag "Post feed of all users:"%>
+<% @posts.reverse.each do |post| %>
+		<b><%=post.title%></b> by <%= link_to post.username, user_path(post.user_id) %> at <%=post.created_at%>
+		<p><%=post.body%>
+		<hr>
+<%end%>

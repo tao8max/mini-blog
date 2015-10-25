@@ -1,0 +1,12 @@
+<h1>Sign In:</h1>
+
+<%=form_for @user, url: {action: :login} do |f|%>
+<%=f.label :email, "Email" %>
+<%=f.text_field :email %>
+<%=f.label :password, "Password" %>
+<%=f.text_field :password %>
+<%=f.submit ("Login")%>
+<%end%>
+
+<h2>Don't have an account?</h2>
+<a href="users/new">Sign Up</a>

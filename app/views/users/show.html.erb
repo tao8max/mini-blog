@@ -1,0 +1,7 @@
+<h2> Your Account Details</h2>
+<b>Username:</b> <%=@user.username%><br>
+<b>Email:</b> <%=@user.email%><br>
+<b>Password:</b> <%=@user.password%><br>
+
+<p>To edit, go to <%= link_to "Edit Profile", edit_user_path %></p>
+<p>To delete account, press <%= link_to "DELETE", user_path, method: :delete %></p>

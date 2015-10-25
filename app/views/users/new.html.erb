@@ -1,0 +1,22 @@
+<h1>Sign Up:</h1>
+
+<% if @user.errors.full_messages.any? %>
+	    	    <ul> <% @user.errors.full_messages.each do |error_message| %>
+	    	               <li><%= error_message%></li> <br />
+	    	         <% end %>   
+	    	    </ul> 
+<% end %>
+<%=form_for @user do |f| %>
+	<%=f.label :username, "Username" %>
+	<%=f.text_field :username %><br>
+	<%=f.label :email, "Email" %>
+	<%=f.text_field :email %><br>
+	<%=f.label :password, "Password" %>
+	<%=f.text_field :password %><br>
+	<%=f.label :password_confirmation, "Password Confirmation" %>
+	<%=f.text_field :password_confirmation %><br>
+	<%=f.submit %>
+<%end%>
+
+<h2>Have an account already?</h2>
+<%= link_to "Log In", "users/login_form" %>

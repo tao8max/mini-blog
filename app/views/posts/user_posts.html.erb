@@ -1,0 +1,19 @@
+<h1>New Post Submission:</h1>
+
+<%=form_for @post do |f|%>
+	<%=f.label :title, "Title"%><br>
+	<%=f.text_field :title%><br>
+
+	<%=f.label :body, "Body"%><br>
+	<%=f.text_area :body, size: "30x10"%><br>
+
+	<%=f.submit ("Create post")%>
+<% end %>
+
+<h1>Your blog feed:</h1>
+
+<% @posts.reverse.each do |post|%>
+<b><%=link_to post.title, post_path(post.id)%></b> at <%=post.created_at%><br>
+<p><%=post.body%>
+<hr>
+<%end%>

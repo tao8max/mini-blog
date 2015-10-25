@@ -1,0 +1,7 @@
+<h1><b>Search results for: </b>
+<%=params[:query] %></h1>
+<%@users.each do |user|%>
+	<b>Username: </b><%=user.username%><br>
+	<b>Email: </b><%=user.email%><br>
+	<hr>
+<%end%>
